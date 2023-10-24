@@ -3,12 +3,45 @@
   --rtc-secondary-color: rgb(21, 21, 21);
   --rtc-tertiary-color: #2bc5cd;
   --rtc-quaternary-color: #ff693d;
+
   --rtc-border: 2px solid var(--rtc-tertiary-color);
-  --rtc-spacing: 28px;
-  font-family: Arial, Helvetica, sans-serif;
+
+  --rtc-cell-height-xs: 12rem;
+  --rtc-cell-height-s: 16rem;
+  --rtc-cell-width-mobile: 100%;
+
+  --rtc-font-size-h1-xs: 1rem;
+  --rtc-font-size-h1-s: 1.5rem;
+  --rtc-font-size-h1-m: 2rem;
+  --rtc-font-size-h1-l: 2.5rem;
+  --rtc-font-size-h2-xs: 1rem;
+  --rtc-font-size-h2-s: 1.5rem;
+  --rtc-font-size-h2-m: 2rem;
+  --rtc-font-size-h2-l: 2.5rem;
+  --rtc-font-size-h3-xs: 0.75rem;
+  --rtc-font-size-h3-s: 1rem;
+  --rtc-font-size-h3-m: 1.5rem;
+  --rtc-font-size-h3-l: 2rem;
+  --rtc-font-size-p-xs: 0.6rem;
+  --rtc-font-size-p-s: 0.75rem;
+  --rtc-font-size-p-m: 1rem;
+  --rtc-font-size-p-l: 1.25rem;
+
+  --rtc-margin-xs: 0 0.75rem;
+  --rtc-margin-s: 0 5%;
+  --rtc-margin-m: 0 1.5rem;
+  --rtc-margin-l: 0 2rem;
+
+  --rtc-padding: 1rem;
+  --rtc-padding-bottom-xs: 1rem;
+  --rtc-padding-bottom-s: 1.25rem;
+  --rtc-padding-inner_button: 0.75rem;
+  --rtc-spacing: 1.75rem;
 }
 
-/* Resto del CSS */
+/* Ahora mismo, el layout establecido se muestra a partir de un width de 666px */
+
+/* TO-DO: Cambiar el layout para un min-width de 280px, y establecer media queries en anchuras superiores */
 
 * {
   box-sizing: border-box;
@@ -17,6 +50,80 @@
 
 body {
   background-color: var(--rtc-primary-color);
+  display: grid;
+  font-family: Arial, Helvetica, sans-serif;
+  grid-gap: var(--rtc-spacing);
+  justify-items: center;
+  margin: var(--rtc-margin-xs);
+  min-width: 230px;
+}
+
+header {
+  background-color: var(--rtc-tertiary-color);
+  display: grid;
+  height: var(--rtc-cell-height-xs);
+  justify-items: center;
+  padding: var(--rtc-spacing) 0;
+  width: var(--rtc-cell-width-mobile);
+}
+
+p {
+  font-size: var(--rtc-font-size-p-xs);
+  text-align: justify;
+}
+
+header > h1 {
+  font-size: var(--rtc-font-size-h1-xs);
+  text-transform: uppercase;
+}
+
+header > h1,
+header > p,
+footer > h3,
+footer > p {
+  color: var(--rtc-primary-color);
+}
+
+header > p {
+  padding: var(--rtc-spacing) var(--rtc-spacing) 0 var(--rtc-spacing);
+}
+
+main {
+  display: grid;
+  align-items: center;
+  border: var(--rtc-border);
+  height: var(--rtc-cell-height-xs);
+  width: var(--rtc-cell-width-mobile);
+}
+
+main > h2 {
+  color: var(--rtc-tertiary-color);
+  font-size: var(--rtc-font-size-h2-xs);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+footer {
+  background-color: var(--rtc-quaternary-color);
+  height: var(--rtc-cell-height-xs);
+  margin-bottom: var(--rtc-spacing);
+  padding: var(--rtc-padding);
+}
+
+footer > h3 {
+  font-size: var(--rtc-font-size-h3-xs);
+}
+
+footer > h3,
+footer > p {
+  padding-bottom: var(--rtc-padding-bottom-s);
+}
+
+footer > button {
+  font-size: var(--rtc-font-size-p-xs);
+  padding: var(--rtc-padding-inner_button);
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .school {
@@ -41,6 +148,29 @@ body {
 .time {
   background-size: cover;
   /* Por ahora, las imágenes tendrán estas medidas fijas */
-  width: 650px;
-  height: 400px;
+  height: var(--rtc-cell-height-xs);
+  width: var(--rtc-cell-width-mobile);
 }
+
+@media screen and (min-width: 333px) {
+  body {
+    margin: var(--rtc-margin-s);
+  }
+
+  header,
+  main,
+  footer,
+  .alumni,
+  .school,
+  .student,
+  .time {
+    height: var(--rtc-cell-height-s);
+  }
+
+  footer > h3,
+  footer > p {
+    padding-bottom: var(--rtc-padding-bottom-s);
+  }
+}
+
+/* Siguiente media query -> a partir de una width de 450px */
