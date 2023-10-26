@@ -1,47 +1,33 @@
 :root {
   --rtc-primary-color: rgb(236, 236, 236);
-  --rtc-secondary-color: rgb(21, 21, 21);
-  --rtc-tertiary-color: #2bc5cd;
-  --rtc-quaternary-color: #ff693d;
+  --rtc-secondary-color: #2bc5cd;
+  --rtc-tertiary-color: #ff693d;
 
-  --rtc-border: 2px solid var(--rtc-tertiary-color);
+  --rtc-border: 2px solid var(--rtc-secondary-color);
 
-  --rtc-cell-height-xs: 12rem;
-  --rtc-cell-height-s: 16rem;
-  --rtc-cell-width-mobile: 100%;
+  --rtc-cell-height-s: 12rem;
+  --rtc-cell-height-m: 14rem;
+  --rtc-cell-height-100: 100%;
+  --rtc-cell-width-100: 100%;
+  --rtc-min-width: 230px;
 
-  --rtc-font-size-h1-xs: 1rem;
-  --rtc-font-size-h1-s: 1.5rem;
-  --rtc-font-size-h1-m: 2rem;
-  --rtc-font-size-h1-l: 2.5rem;
-  --rtc-font-size-h2-xs: 1rem;
-  --rtc-font-size-h2-s: 1.5rem;
-  --rtc-font-size-h2-m: 2rem;
-  --rtc-font-size-h2-l: 2.5rem;
-  --rtc-font-size-h3-xs: 0.75rem;
-  --rtc-font-size-h3-s: 1rem;
-  --rtc-font-size-h3-m: 1.5rem;
-  --rtc-font-size-h3-l: 2rem;
-  --rtc-font-size-p-xs: 0.6rem;
-  --rtc-font-size-p-s: 0.75rem;
-  --rtc-font-size-p-m: 1rem;
-  --rtc-font-size-p-l: 1.25rem;
+  --rtc-font-size-h1: 1rem;
+  --rtc-font-size-h2: 1rem;
+  --rtc-font-size-h3: 0.75rem;
+  --rtc-font-size-p: 0.75rem;
 
-  --rtc-margin-xs: 0 0.75rem;
-  --rtc-margin-s: 0 5%;
-  --rtc-margin-m: 0 1.5rem;
-  --rtc-margin-l: 0 2rem;
+  --rtc-margin-xs: 0.75rem;
+  --rtc-margin-s: 1rem;
+  --rtc-margin-m: 1.5rem;
 
   --rtc-padding: 1rem;
-  --rtc-padding-bottom-xs: 1rem;
+  --rtc-padding-bottom-xs: 0.75rem;
   --rtc-padding-bottom-s: 1.25rem;
   --rtc-padding-inner_button: 0.75rem;
-  --rtc-spacing: 1.75rem;
+
+  --rtc-spacing-desktop: 1rem;
+  --rtc-spacing-mobile: 1.75rem;
 }
-
-/* Ahora mismo, el layout establecido se muestra a partir de un width de 666px */
-
-/* TO-DO: Cambiar el layout para un min-width de 280px, y establecer media queries en anchuras superiores */
 
 * {
   box-sizing: border-box;
@@ -52,28 +38,27 @@ body {
   background-color: var(--rtc-primary-color);
   display: grid;
   font-family: Arial, Helvetica, sans-serif;
-  grid-gap: var(--rtc-spacing);
+  grid-gap: var(--rtc-spacing-mobile);
   justify-items: center;
   margin: var(--rtc-margin-xs);
-  min-width: 230px;
+  min-width: var(--rtc-min-width);
 }
 
 header {
-  background-color: var(--rtc-tertiary-color);
+  background-color: var(--rtc-secondary-color);
   display: grid;
-  height: var(--rtc-cell-height-xs);
+  height: var(--rtc-cell-height-s);
   justify-items: center;
-  padding: var(--rtc-spacing) 0;
-  width: var(--rtc-cell-width-mobile);
+  padding: var(--rtc-spacing-mobile) 0;
 }
 
 p {
-  font-size: var(--rtc-font-size-p-xs);
+  font-size: var(--rtc-font-size-p);
   text-align: justify;
 }
 
 header > h1 {
-  font-size: var(--rtc-font-size-h1-xs);
+  font-size: var(--rtc-font-size-h1);
   text-transform: uppercase;
 }
 
@@ -85,42 +70,41 @@ footer > p {
 }
 
 header > p {
-  padding: var(--rtc-spacing) var(--rtc-spacing) 0 var(--rtc-spacing);
+  padding: var(--rtc-spacing-mobile) var(--rtc-spacing-mobile) 0
+    var(--rtc-spacing-mobile);
 }
 
 main {
   display: grid;
   align-items: center;
   border: var(--rtc-border);
-  height: var(--rtc-cell-height-xs);
-  width: var(--rtc-cell-width-mobile);
+  height: var(--rtc-cell-height-s);
+  width: var(--rtc-cell-width-100);
 }
 
 main > h2 {
-  color: var(--rtc-tertiary-color);
-  font-size: var(--rtc-font-size-h2-xs);
+  color: var(--rtc-secondary-color);
+  font-size: var(--rtc-font-size-h2);
   text-align: center;
   text-transform: uppercase;
 }
 
 footer {
-  background-color: var(--rtc-quaternary-color);
-  height: var(--rtc-cell-height-xs);
-  margin-bottom: var(--rtc-spacing);
+  background-color: var(--rtc-tertiary-color);
   padding: var(--rtc-padding);
 }
 
 footer > h3 {
-  font-size: var(--rtc-font-size-h3-xs);
+  font-size: var(--rtc-font-size-h3);
 }
 
 footer > h3,
 footer > p {
-  padding-bottom: var(--rtc-padding-bottom-s);
+  padding-bottom: var(--rtc-padding-bottom-xs);
 }
 
 footer > button {
-  font-size: var(--rtc-font-size-p-xs);
+  font-size: var(--rtc-font-size-p);
   padding: var(--rtc-padding-inner_button);
   text-align: center;
   text-transform: uppercase;
@@ -147,9 +131,8 @@ footer > button {
 .student,
 .time {
   background-size: cover;
-  /* Por ahora, las imágenes tendrán estas medidas fijas */
-  height: var(--rtc-cell-height-xs);
-  width: var(--rtc-cell-width-mobile);
+  height: var(--rtc-cell-height-s);
+  width: var(--rtc-cell-width-100);
 }
 
 @media screen and (min-width: 333px) {
@@ -159,11 +142,15 @@ footer > button {
 
   header,
   main,
-  footer,
   .alumni,
   .school,
   .student,
   .time {
+    height: var(--rtc-cell-height-m);
+    max-width: var(--rtc-cell-width-mobile-max);
+  }
+
+  footer {
     height: var(--rtc-cell-height-s);
   }
 
@@ -173,4 +160,76 @@ footer > button {
   }
 }
 
-/* Siguiente media query -> a partir de una width de 450px */
+@media screen and (min-width: 540px) {
+  body {
+    grid-gap: var(--rtc-spacing-desktop);
+    grid-template-areas: 'header school' 'student main' 'time alumni' 'footer footer';
+    grid-template-columns: repeat(2, 1fr);
+    margin: var(--rtc-margin-m);
+  }
+
+  header {
+    grid-area: header;
+  }
+
+  main {
+    grid-area: main;
+  }
+
+  footer {
+    grid-area: footer;
+    max-width: none;
+  }
+
+  .alumni {
+    grid-area: alumni;
+  }
+
+  .school {
+    grid-area: school;
+  }
+
+  .student {
+    grid-area: student;
+  }
+
+  .time {
+    grid-area: time;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  body {
+    grid-template-areas: 'header school student' 'header main time' 'alumni footer footer';
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  header {
+    height: var(--rtc-cell-width-100);
+  }
+
+  main > h2 {
+    padding: 0 var(--rtc-padding);
+  }
+
+  footer {
+    height: var(--rtc-cell-height-100);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  body {
+    grid-template-areas: 'header school student time' 'header main main alumni' 'footer footer footer footer';
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  main {
+    height: var(--rtc-cell-width-100);
+    max-width: none;
+  }
+
+  footer {
+    height: var(--rtc-cell-height-s);
+    width: var(--rtc-cell-width-100);
+  }
+}
